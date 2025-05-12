@@ -23,8 +23,8 @@ function draw() {
   translate(width, 0); // 將畫布的原點移到右上角
   scale(-1, 1); // 水平翻轉畫布
 
-  // 繪製攝影機影像，調整位置以適應翻轉
-  image(video, -width, 0, width, height);
+  // 繪製攝影機影像
+  image(video, 0, 0, width, height);
 
   // 設定線條樣式
   stroke(0, 0, 255); // 藍色
