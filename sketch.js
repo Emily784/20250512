@@ -1,7 +1,13 @@
 let facemesh;
 let video;
 let predictions = [];
-const points = [409, 270, 269, 267, 0, 37, 39, 40, 185, 61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291];
+
+// 第一組點
+const points1 = [409, 270, 269, 267, 0, 37, 39, 40, 185, 61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291];
+// 第二組點
+const points2 = [133, 173, 157, 158, 159, 160, 161, 246, 33, 7, 163, 144, 145, 153, 154, 155];
+// 第三組點
+const points3 = [263, 466, 388, 387, 386, 385, 384, 398, 362, 382, 381, 380, 374, 373, 390, 249];
 
 function setup() {
   createCanvas(640, 480);
@@ -25,12 +31,28 @@ function draw() {
   stroke(0, 0, 255); // 藍色
   strokeWeight(3);
 
-  // 畫出指定點之間的線條
+  // 畫出第一組點之間的線條
   if (predictions.length > 0) {
     const keypoints = predictions[0].scaledMesh;
-    for (let i = 0; i < points.length - 1; i++) {
-      const start = keypoints[points[i]];
-      const end = keypoints[points[i + 1]];
+
+    // 繪製第一組點
+    for (let i = 0; i < points1.length - 1; i++) {
+      const start = keypoints[points1[i]];
+      const end = keypoints[points1[i + 1]];
+      line(start[0], start[1], end[0], end[1]);
+    }
+
+    // 繪製第二組點
+    for (let i = 0; i < points2.length - 1; i++) {
+      const start = keypoints[points2[i]];
+      const end = keypoints[points2[i + 1]];
+      line(start[0], start[1], end[0], end[1]);
+    }
+
+    // 繪製第三組點
+    for (let i = 0; i < points3.length - 1; i++) {
+      const start = keypoints[points3[i]];
+      const end = keypoints[points3[i + 1]];
       line(start[0], start[1], end[0], end[1]);
     }
   }
