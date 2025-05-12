@@ -19,11 +19,6 @@ function setup() {
 }
 
 function draw() {
-  // 水平翻轉畫布
-  translate(width, 0); // 將畫布的原點移到右上角
-  scale(-1, 1); // 水平翻轉畫布
-
-  // 繪製攝影機影像
   image(video, 0, 0, width, height);
 
   // 設定線條樣式
